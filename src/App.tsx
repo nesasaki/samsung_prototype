@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Screen1A from './screens/Screen1A'
 import Screen1B from './screens/Screen1B'
+import Screen1C from './screens/Screen1C'
 import Screen2A from './screens/Screen2A'
 import Screen2B from './screens/Screen2B'
 import Screen3A from './screens/Screen3A'
@@ -33,10 +34,10 @@ const BEATS: BeatDef[] = [
     flywheel: 'Human Need Detected',
     theme: 'dark',
     rationale: [
-      { label: 'Signal detected', text: 'Marcus posted on Instagram 3 days ago — first sign-of-life since his Austin move. Last iMessage: 6 weeks ago. Last call: 2 months ago.' },
+      { label: 'Signals tracked', text: 'OS has been monitoring silence across WhatsApp (6 weeks), Instagram, and LinkedIn. Marcus posted 3 days ago: "Finally got a couch. Austin is officially home 🏠" — first social signal since the move.' },
       { label: 'Relationship status', text: 'Active contact, now drifting. Prior cadence: 2–3 touchpoints per month. Current gap is 2× the expected interval.' },
-      { label: 'Why now', text: 'First phone lift of the day. No sound, no alert. Card appears as ambient context at the moment attention is highest — noticed, not demanded.' },
-      { label: 'Trust mode', text: 'Silent surface. No action required. "Later" defers without closing the thread — it will resurface at a better moment.' },
+      { label: 'Why now', text: 'First phone lift of the day. No sound, no alert. Card appears as ambient context — noticed, not demanded. "Reach out" opens the draft card directly.' },
+      { label: 'Trust mode', text: 'Silent surface. "Later" defers without closing the thread — it resurfaces at a better moment. No action required.' },
     ],
   },
   {
@@ -46,10 +47,25 @@ const BEATS: BeatDef[] = [
     flywheel: 'Human Need Detected',
     theme: 'dark',
     rationale: [
-      { label: 'Signal detected', text: 'Marcus posted on Instagram 3 days ago — first sign-of-life since his Austin move. Last iMessage: 6 weeks ago. Last call: 2 months ago.' },
-      { label: 'Channel history', text: 'iMessage used for 3 years as primary channel. Last thread: 6 weeks ago, unresolved. Prior to the move, average gap was 8–12 days.' },
-      { label: 'Lock screen expansion', text: 'On lift, the card reveals channel-level detail. More context, same low pressure — still no notification, no sound.' },
-      { label: 'Trust mode', text: 'Silent surface with expanded context. "Reach out" opens the intent layer pre-populated with Marcus\'s context.' },
+      { label: 'What the card shows', text: 'On lift, the card surfaces the texture of the relationship right now: Marcus\'s last words, his Instagram post, and the agent\'s read — everything Maya needs to reply warmly without overthinking.' },
+      { label: 'Last message context', text: '"haha yeah def let me know when you\'re in NYC 🙏" — casual, warm thread. No unresolved tension. Clean re-entry point.' },
+      { label: 'Instagram signal', text: '"Finally got a couch. Austin is officially home" — natural conversation hook. The agent flagged this as a low-pressure reason to reach out that doesn\'t require explaining the 6-week silence.' },
+      { label: 'Agent read', text: '"He\'s settled in. Good moment to reach out." The inline read gives Maya permission to act without overthinking. It\'s an interpretation, not a directive.' },
+      { label: 'Trust mode', text: 'Silent surface with enriched context. Reaching out opens Screen 1C with a pre-populated draft built from these signals.' },
+    ],
+  },
+  {
+    screen: Screen1C,
+    uc: 1,
+    title: 'Relationship health, proactively surfaced',
+    flywheel: 'Human Need Detected',
+    theme: 'dark',
+    rationale: [
+      { label: 'Draft source', text: 'Built from the Instagram post as the conversation hook. "Haha ok the couch post" references his exact words — the draft sounds like Maya because it\'s grounded in their actual register, not a template.' },
+      { label: 'Tone calibration', text: 'Casual, warm, slightly playful — matches Maya\'s prior WhatsApp messages to Marcus. The agent analysed 18 months of message history to calibrate this register.' },
+      { label: 'Channel selection', text: 'WhatsApp selected as preferred channel — most recent active thread, highest response rate. "Choose channel" is available if Maya wants to switch without leaving the card.' },
+      { label: 'Agent note', text: 'The inline note ("References his Instagram post. Matches your usual register") is brief transparency — not a full explanation, just enough to show the draft isn\'t generic.' },
+      { label: 'Trust mode', text: 'Explicit acknowledgment with edit path. Draft shown for approval. Edit makes text editable inline. Channel can be switched, including to a call, without starting over.' },
     ],
   },
   {
